@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "api-contract-monitor"
+version = "0.1.0"
+description = "Python tool for checking API responses against expected contracts."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+  { name = "Bas Mulder", email = "mulder2222@hotmail.com" }
+]
+
+[project.scripts]
+api-contract-monitor = "api_contract_monitor.cli:main"
