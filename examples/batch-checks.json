@@ -1,0 +1,19 @@
+[
+  {
+    "name": "order-status happy path",
+    "contract": "examples/order-status.json",
+    "payload": {
+      "id": "ord-1",
+      "status": "paid",
+      "updated_at": "2026-03-15T20:00:00Z"
+    }
+  },
+  {
+    "name": "order-status drift",
+    "contract": "examples/order-status.json",
+    "payload": {
+      "id": "ord-2",
+      "state": "paid"
+    }
+  }
+]

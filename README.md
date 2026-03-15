@@ -22,22 +22,25 @@ It complements backend/API work instead of distracting from it.
 ## Features
 
 - define expected response contracts in JSON
-- run checks against one or more endpoints
+- validate flat and nested response shapes
+- run single checks from the CLI
+- run batch checks from a config file
 - report missing or unexpected keys
 - produce clear terminal summaries
 
 ## Example Usage
 
 ```bash
-python -m api_contract_monitor.cli check --contract examples/order-status.json --url https://example.test/api/order-status
+python -m api_contract_monitor.cli check --contract examples/order-status.json --payload '{"id":"100","status":"paid","updated_at":"2026-03-15T20:00:00Z"}'
+python -m api_contract_monitor.cli batch --config examples/batch-checks.json
 ```
 
 ## Architecture
 
 - `cli.py` parses commands
-- `contracts.py` loads expected contracts
+- `contracts.py` loads expected contracts and batch configs
 - `validator.py` compares expected and actual payload shapes
-- `reporting.py` formats results
+- `reporting.py` formats individual and batch results
 
 ## Tradeoffs
 
@@ -47,7 +50,6 @@ python -m api_contract_monitor.cli check --contract examples/order-status.json -
 
 ## Future Improvements
 
-- batch config files
 - JSON Schema support
 - CI mode for contract regression checks
 - Slack or webhook notifications
